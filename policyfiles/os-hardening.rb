@@ -3,6 +3,10 @@ name "os-hardening"
 # Where to find external cookbooks:
 
 default_source :supermarket
-run_list "os-hardening::default"
+run_list "linux-initial-config::default"
 
-cookbook 'os-hardening', '~> 3.2.0'
+default['linux-initial-config']['vault_url'] = 'https://localhost:8200'
+default['linux-initial-config']['ca_key_name'] = 'trusted-ca-key'
+default['linux-initial-config']['ssh_mount_path'] = 'ssh'
+
+
